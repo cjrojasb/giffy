@@ -4,14 +4,15 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import Title from '../../components/Title/Title';
 import List from '../../components/List/List';
 import Loading from '../../components/Loading/Loading';
-import PopularGif from '../../components/PopularGif/PopularGif';
+import TrendingSearches from '../../components/TrendingSearches/TrendingSearches';
 import useTrendingGifs from '../../hooks/useTrendingGifs';
+import useTrendingSearches from '../../hooks/useTrendingSearches';
 
 const Home = () => {
   const { loading, gifs } = useTrendingGifs();
-  const POPULAR_GIFS = ['bumstead', 'programming', 'dog', 'labrador', 'motogp'];
+  const { loadingTrends, trends } = useTrendingSearches();
 
-  if (loading) return <Loading />;
+  if (loading || loadingTrends) return <Loading />;
 
   return (
     <Box display='flex' flexDirection='column' justifyContent='center' py={4}>
@@ -26,8 +27,8 @@ const Home = () => {
           </Grid>
         </Grid>
         <Grid item md={3}>
-          <Title title='Gifs Populares' />
-          <PopularGif popularGifs={POPULAR_GIFS} />
+          <Title title='Tendencias' />
+          <TrendingSearches trends={trends} />
         </Grid>
       </Grid>
     </Box>

@@ -1,10 +1,10 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 
-const Title = ({ title }) => {
+const Title = ({ title, decode = false }) => {
   return (
     <Typography variant='h4' component='h4' gutterBottom align='left'>
-      {title}
+      {decode ? decodeURI(title) : title}
     </Typography>
   );
 };

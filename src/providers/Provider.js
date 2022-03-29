@@ -1,7 +1,19 @@
-const apiKey = 'Cph6H7O9nTfDW9MU152MVnMo9YAbJveE';
+import { API_KEY, API_URL } from './settings';
+
+export function getTrendingSearches() {
+  const apiUrl = `${API_URL}/trending/searches?api_key=${API_KEY}`;
+
+  return fetch(apiUrl)
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response.data);
+      return response.data;
+    })
+    .catch((err) => console.log(err));
+}
 
 export function getTrendingGifs() {
-  const apiUrl = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=25&rating=g`;
+  const apiUrl = `${API_URL}/gifs/trending?api_key=${API_KEY}&limit=25&rating=g`;
 
   return fetch(apiUrl)
     .then((res) => res.json())
@@ -13,7 +25,7 @@ export function getTrendingGifs() {
 }
 
 export function getGifs({ keyword = 'bodybuilding' } = {}) {
-  const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=25&rating=g`;
+  const apiUrl = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=25&rating=g`;
 
   return fetch(apiUrl)
     .then((res) => res.json())
@@ -25,7 +37,7 @@ export function getGifs({ keyword = 'bodybuilding' } = {}) {
 }
 
 export function getGif(id) {
-  const apiUrl = `https://api.giphy.com/v1/gifs/${id}?api_key=${apiKey}`;
+  const apiUrl = `${API_URL}/gifs/${id}?api_key=${API_KEY}`;
 
   return fetch(apiUrl)
     .then((res) => res.json())

@@ -12,19 +12,22 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const PopularGif = ({ popularGifs }) => {
+const TrendingSearches = ({ trends }) => {
   const classes = useStyles();
 
+  console.log(trends);
   return (
     <List dense>
-      {popularGifs.map((popularGif, index) => (
+      {trends.map((trend, index) => (
         <ListItem disablePadding key={index} dense>
           <ListItemButton component='button'>
             <ListItemText>
               <Link
                 className={classes.popularLink}
-                to={`/gifs/search/${popularGif}`}
-              >{`Gifs de ${popularGif}`}</Link>
+                to={`/gifs/search/${trend}`}
+              >
+                {trend}
+              </Link>
             </ListItemText>
           </ListItemButton>
         </ListItem>
@@ -33,4 +36,4 @@ const PopularGif = ({ popularGifs }) => {
   );
 };
 
-export default PopularGif;
+export default TrendingSearches;
