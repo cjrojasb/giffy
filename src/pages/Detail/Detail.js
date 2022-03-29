@@ -1,4 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+// Context
+import StaticContext from '../../context/StaticContext';
+import GlobalContext from '../../context/GlobalContext';
+// Custom Hook Context
+import useGlobalGifs from '../../hooks/useGlobalGifs';
+
 import useGif from '../../hooks/useGif';
 import Loading from '../../components/Loading/Loading';
 import {
@@ -16,10 +22,17 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 
 const Detail = ({ params }) => {
+  const staticContext = useContext(StaticContext);
+  const globalContext = useContext(GlobalContext);
+  const gifs = useGlobalGifs();
   const { id } = params;
   const { loading, gif } = useGif(id);
 
   if (loading) return <Loading />;
+
+  // console.log('staticContext', staticContext);
+  // console.log('globalContext', globalContext);
+  // console.log(gifs);
 
   return (
     gif !== undefined && (

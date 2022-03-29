@@ -17,7 +17,7 @@ const useStyles = makeStyles(() =>
 
 const SearchForm = () => {
   const [keyword, setKeyword] = useState('');
-  const [setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
   const clases = useStyles();
 
   const handleSubmit = (event) => {

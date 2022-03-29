@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { getGifs } from '../providers/Provider';
+import GlobalContext from '../context/GlobalContext';
 
 export const useGifs = (keyword) => {
-  const [gifs, setGifs] = useState([]);
+  const { gifs, setGifs } = useContext(GlobalContext);
+  // const [gifs, setGifs] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
