@@ -4,7 +4,6 @@ import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'wouter';
 import Loading from 'components/Loading/Loading';
 import useTrendingSearches from 'hooks/useTrendingSearches';
-import useLazyLoad from 'hooks/useLazyLoad';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -41,10 +40,4 @@ const TrendingSearches = () => {
   );
 };
 
-const LazyTrendingSearches = () => {
-  const { show, fromRef } = useLazyLoad({ distance: '200px' });
-
-  return <div ref={fromRef}>{show ? <TrendingSearches /> : <Loading />}</div>;
-};
-
-export default LazyTrendingSearches;
+export default TrendingSearches;

@@ -4,7 +4,7 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import Title from 'components/Title/Title';
 import List from 'components/List/List';
 import Loading from 'components/Loading/Loading';
-import LazyTrendingSearches from 'components/TrendingSearches/TrendingSearches';
+import LazyTrendingSearches from 'components/TrendingSearches/LazyTrendingSearches';
 import useTrendingGifs from 'hooks/useTrendingGifs';
 
 const Home = () => {
