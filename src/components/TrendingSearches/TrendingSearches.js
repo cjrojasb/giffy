@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core';
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'wouter';
-import useTrendingSearches from 'hooks/useTrendingSearches';
 import Loading from 'components/Loading/Loading';
+import useTrendingSearches from 'hooks/useTrendingSearches';
+import useLazyLoad from 'hooks/useLazyLoad';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -41,30 +42,9 @@ const TrendingSearches = () => {
 };
 
 const LazyTrendingSearches = () => {
-  const [show, setShow] = useState(false);
-  const lazyTrendingRef = useRef();
+  const { show, fromRef } = useLazyLoad({ distance: '200px' });
 
-  useEffect(() => {
-    const onChange = (entries, observer) => {
-      const lazyElement = entries[0];
-      if (lazyElement.isIntersecting) {
-        setShow(true);
-        observer.disconnect();
-      }
-    };
-
-    const observer = new IntersectionObserver(onChange, {
-      rootMargin: '100px',
-    });
-
-    observer.observe(lazyTrendingRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={lazyTrendingRef}>{show ? <TrendingSearches /> : <Loading />}</div>
-  );
+  return <div ref={fromRef}>{show ? <TrendingSearches /> : <Loading />}</div>;
 };
 
 export default LazyTrendingSearches;
