@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getTrendingSearches } from '../providers/Provider';
+import { getTrendingSearches } from 'providers/Provider';
 
 const useTrendingSearches = () => {
   const [trends, seTrends] = useState([]);

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
-import SearchForm from '../../components/SearchForm/SearchForm';
-import Title from '../../components/Title/Title';
-import List from '../../components/List/List';
-import Loading from '../../components/Loading/Loading';
-import TrendingSearches from '../../components/TrendingSearches/TrendingSearches';
-import useTrendingGifs from '../../hooks/useTrendingGifs';
-import useTrendingSearches from '../../hooks/useTrendingSearches';
+import SearchForm from 'components/SearchForm/SearchForm';
+import Title from 'components/Title/Title';
+import List from 'components/List/List';
+import Loading from 'components/Loading/Loading';
+import TrendingSearches from 'components/TrendingSearches/TrendingSearches';
+import useTrendingGifs from 'hooks/useTrendingGifs';
+import useTrendingSearches from 'hooks/useTrendingSearches';
 
 const Home = () => {
   const { loading, gifs } = useTrendingGifs();

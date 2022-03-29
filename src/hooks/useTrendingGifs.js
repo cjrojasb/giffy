@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getTrendingGifs } from '../providers/Provider';
+import { getTrendingGifs } from 'providers/Provider';
 
 const useTrendingGifs = () => {
   const [gifs, setGifs] = useState([]);

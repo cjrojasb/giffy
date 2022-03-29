@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Container, Toolbar } from '@mui/material';
 import { createStyles, makeStyles } from '@material-ui/core';
-import Logo from '../../assets/images/logo.png';
+import Logo from 'assets/images/logo.png';
 import { Link } from 'wouter';
 
 const useStyles = makeStyles(() =>

@@ -15,7 +15,6 @@ const useStyles = makeStyles(() =>
 const TrendingSearches = ({ trends }) => {
   const classes = useStyles();
 
-  console.log(trends);
   return (
     <List dense>
       {trends.map((trend, index) => (

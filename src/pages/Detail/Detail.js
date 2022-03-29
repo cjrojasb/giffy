@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 // Context
-import StaticContext from '../../context/StaticContext';
-import GlobalContext from '../../context/GlobalContext';
+import StaticContext from 'context/StaticContext';
+import GlobalContext from 'context/GlobalContext';
 // Custom Hook Context
-import useGlobalGifs from '../../hooks/useGlobalGifs';
-
-import useGif from '../../hooks/useGif';
-import Loading from '../../components/Loading/Loading';
+import useGlobalGifs from 'hooks/useGlobalGifs';
+import useGif from 'hooks/useGif';
+import Loading from 'components/Loading/Loading';
 import {
   Avatar,
   Card,

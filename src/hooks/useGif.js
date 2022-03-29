@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getGif } from '../providers/Provider';
+import { getGif } from 'providers/Provider';
 
 const useGif = (id) => {
   const [gif, setGif] = useState();
