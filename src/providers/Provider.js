@@ -22,8 +22,14 @@ export function getTrendingGifs() {
     .catch((err) => console.log(err));
 }
 
-export function getGifs({ keyword = 'bodybuilding' } = {}) {
-  const apiUrl = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=25&rating=g`;
+export function getGifs({
+  limit = 25,
+  keyword = 'bodybuilding',
+  page = 0,
+} = {}) {
+  const apiUrl = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${
+    page * limit
+  }&rating=g`;
 
   return fetch(apiUrl)
     .then((res) => res.json())
