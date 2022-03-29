@@ -6,7 +6,7 @@ const List = ({ gifs }) => {
   return (
     <Grid container spacing={1}>
       {gifs.map(({ id, images }) => (
-        <Grid key={id} item>
+        <Grid key={id} item xs={12} md={3}>
           <Gif id={id} url={images.fixed_width_downsampled.url} />
         </Grid>
       ))}

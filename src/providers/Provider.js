@@ -6,7 +6,6 @@ export function getTrendingSearches() {
   return fetch(apiUrl)
     .then((res) => res.json())
     .then((response) => {
-      console.log(response.data);
       return response.data;
     })
     .catch((err) => console.log(err));
@@ -18,7 +17,6 @@ export function getTrendingGifs() {
   return fetch(apiUrl)
     .then((res) => res.json())
     .then((response) => {
-      console.log(response.data);
       return response.data;
     })
     .catch((err) => console.log(err));
@@ -30,7 +28,6 @@ export function getGifs({ keyword = 'bodybuilding' } = {}) {
   return fetch(apiUrl)
     .then((res) => res.json())
     .then((response) => {
-      console.log(response.data);
       return response.data;
     })
     .catch((err) => console.log(err));
@@ -42,7 +39,6 @@ export function getGif(id) {
   return fetch(apiUrl)
     .then((res) => res.json())
     .then((response) => {
-      console.log(response.data);
       return response.data;
     })
     .catch((err) => console.log(err));

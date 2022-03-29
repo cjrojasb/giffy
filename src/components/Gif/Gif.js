@@ -9,6 +9,7 @@ const useStyles = makeStyles(() =>
         display: 'block',
         height: 'auto',
         maxWidth: '100%',
+        width: '100%'
       },
     },
   })

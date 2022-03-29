@@ -4,15 +4,13 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import Title from 'components/Title/Title';
 import List from 'components/List/List';
 import Loading from 'components/Loading/Loading';
-import TrendingSearches from 'components/TrendingSearches/TrendingSearches';
+import LazyTrendingSearches from 'components/TrendingSearches/TrendingSearches';
 import useTrendingGifs from 'hooks/useTrendingGifs';
-import useTrendingSearches from 'hooks/useTrendingSearches';
 
 const Home = () => {
   const { loading, gifs } = useTrendingGifs();
-  const { loadingTrends, trends } = useTrendingSearches();
 
-  if (loading || loadingTrends) return <Loading />;
+  if (loading) return <Loading />;
 
   return (
     <Box display='flex' flexDirection='column' justifyContent='center' py={4}>
@@ -28,7 +26,7 @@ const Home = () => {
         </Grid>
         <Grid item md={3}>
           <Title title='Tendencias' />
-          <TrendingSearches trends={trends} />
+          <LazyTrendingSearches />
         </Grid>
       </Grid>
     </Box>
