@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { createStyles, makeStyles } from '@material-ui/core';
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'wouter';
@@ -42,13 +42,14 @@ const TrendingSearches = () => {
 
 const LazyTrendingSearches = () => {
   const [show, setShow] = useState(false);
+  const lazyTrendingRef = useRef();
 
   useEffect(() => {
-    const LazyTrendingElement = document.getElementById('LazyTrending');
-    const onChange = (entries) => {
+    const onChange = (entries, observer) => {
       const lazyElement = entries[0];
       if (lazyElement.isIntersecting) {
         setShow(true);
+        observer.disconnect();
       }
     };
 
@@ -56,11 +57,13 @@ const LazyTrendingSearches = () => {
       rootMargin: '100px',
     });
 
-    observer.observe(LazyTrendingElement);
+    observer.observe(lazyTrendingRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div id='LazyTrending'>{show ? <TrendingSearches /> : <Loading />}</div>
+    <div ref={lazyTrendingRef}>{show ? <TrendingSearches /> : <Loading />}</div>
   );
 };
 
