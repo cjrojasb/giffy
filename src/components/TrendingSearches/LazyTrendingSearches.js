@@ -1,11 +1,19 @@
+import { lazy, Suspense } from 'react';
 import useLazyLoad from 'hooks/useLazyLoad';
 import Loading from 'components/Loading/Loading';
-import TrendingSearches from 'components/TrendingSearches/TrendingSearches';
+
+const TrendingSearches = lazy(() => import('./TrendingSearches'));
 
 const LazyTrendingSearches = () => {
   const { show, fromRef } = useLazyLoad({ distance: '200px' });
 
-  return <div ref={fromRef}>{show ? <TrendingSearches /> : <Loading />}</div>;
+  return (
+    <div ref={fromRef}>
+      <Suspense fallback={<Loading />}>
+        {show ? <TrendingSearches /> : <Loading />}
+      </Suspense>
+    </div>
+  );
 };
 
 export default LazyTrendingSearches;
