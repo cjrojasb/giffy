@@ -23,7 +23,7 @@ export function getTrendingGifs() {
 }
 
 export function getGifs({
-  limit = 25,
+  limit = 5,
   keyword = 'bodybuilding',
   page = 0,
 } = {}) {
