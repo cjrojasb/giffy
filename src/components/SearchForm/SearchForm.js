@@ -31,7 +31,7 @@ const SearchForm = () => {
 
   return (
     <Box mb={3}>
-      <form onSubmit={handleSubmit}>
+      <form id="search-form" data-testid="search-form" onSubmit={handleSubmit}>
         <TextField
           fullWidth
           onChange={handleInputChange}
@@ -47,6 +47,7 @@ const SearchForm = () => {
           }}
           margin='normal'
           value={keyword}
+          name="search"
         />
       </form>
     </Box>

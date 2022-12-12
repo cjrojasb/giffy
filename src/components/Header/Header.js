@@ -1,16 +1,16 @@
-import React from 'react';
-import { AppBar, Container, Toolbar } from '@mui/material';
-import { createStyles, makeStyles } from '@material-ui/core';
-import Logo from 'assets/images/logo.png';
-import { Link } from 'wouter';
+import React from "react";
+import { AppBar, Container, Toolbar } from "@mui/material";
+import { createStyles, makeStyles } from "@material-ui/core";
+import Logo from "assets/images/logo.png";
+import { Link } from "wouter";
 
 const useStyles = makeStyles(() =>
   createStyles({
     boxAppBar: {
-      backgroundColor: 'black !important',
+      backgroundColor: "black !important",
     },
     logo: {
-      cursor: 'pointer',
+      cursor: "pointer",
       height: 64,
       width: 64,
     },
@@ -20,8 +20,8 @@ const useStyles = makeStyles(() =>
 const Header = () => {
   const classes = useStyles();
   return (
-    <AppBar position='fixed' className={classes.boxAppBar}>
-      <Container maxWidth='xl'>
+    <AppBar position="fixed" className={classes.boxAppBar}>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <Typography
             variant='h6'
@@ -31,8 +31,13 @@ const Header = () => {
           >
             LOGO
           </Typography> */}
-          <Link to='/'>
-            <img src={Logo} alt='Giffy' className={classes.logo} />
+          <Link to="/">
+            <img
+              src={Logo}
+              alt="Giffy"
+              className={classes.logo}
+              data-testid="logo"
+            />
           </Link>
         </Toolbar>
       </Container>
