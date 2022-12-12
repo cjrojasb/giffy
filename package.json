@@ -28,7 +28,7 @@
   },
   "eslintConfig": {
     "env": {
-      "cypress/global": true
+      "cypress/globals": true
     },
     "extends": [
       "react-app",

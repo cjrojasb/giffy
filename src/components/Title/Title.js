@@ -9,6 +9,7 @@ const Title = ({ title, decode = false }) => {
       gutterBottom
       align='left'
       display='block'
+      id="title-search-results"
     >
       {decode ? decodeURI(title) : title}
     </Typography>

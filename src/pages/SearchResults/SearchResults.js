@@ -48,7 +48,7 @@ const SearchResults = ({ params }) => {
         {gifs.length > 0 ? <List gifs={gifs} /> : <Loading />}
       </Box>
       <br />
-      <Button variant='contained' onClick={handleNextPage}>
+      <Button variant='contained' id="search-results-button" onClick={handleNextPage}>
         Next Page
       </Button>
       <div ref={externalRef}></div>
